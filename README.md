@@ -1,0 +1,2 @@
+# doc
+Automated documentation test
