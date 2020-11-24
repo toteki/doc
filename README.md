@@ -8,7 +8,7 @@ Created to be able to generate godoc html pages, except as a flat file without h
 
 ## How to do it:
 ```
-wget -q -O doc - https://raw.githubusercontent.com/toteki/doc/main/doc && sh doc
+wget -q -O doc https://raw.githubusercontent.com/toteki/doc/main/doc && sh doc
 ```
 
 ## What it does:
