@@ -8,10 +8,10 @@ go get -u $PACKAGE
 
 godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html
 
-wget -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
-wget -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
-wget -O godocs.js https://raw.githubusercontent.com/toteki/doc/main/godocs.js
-wget -O style.css https://raw.githubusercontent.com/toteki/doc/main/style.css
+wget -q -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
+wget -q -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
+wget -q -O godocs.js https://raw.githubusercontent.com/toteki/doc/main/godocs.js
+wget -q -O style.css https://raw.githubusercontent.com/toteki/doc/main/style.css
 
 go build -o doc doc.go 
 
