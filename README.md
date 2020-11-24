@@ -5,6 +5,7 @@ Created to be able to generate godoc html pages, except as a flat file without h
 ## Requirements:
 - godoc installed (not go doc, but godoc) and usable
 - go itself (to build the doc.go script)
+- go get -u github.com/toteki/wiz
 
 ## How to do it:
 ```
@@ -19,4 +20,4 @@ wget -q -O doc https://raw.githubusercontent.com/toteki/doc/main/doc && sh doc
 - Displays the resulting docfinal.html
 
 ## Annoyances:
-- Since this uses go get to fetch the package, you can't use the tool on local changes, or branch changes. The clunky but effective solution to this might just be to push changes, THEN run this and push documentation.
+- Since this uses go get to fetch the package, you can't use the tool on local changes, or branch changes. The clunky but effective solution to this might just be to push changes to master (or the target branch of 'go get'), THEN run this and push documentation.
