@@ -1,28 +1,24 @@
-#!/usr/bin/env bash
-# example: PACKAGE=github.com/toteki/wiz
-# in that case, enter github.com/toteki/wiz
-nl "$PACKAGE" >/dev/tty
-read -p"Enter package name to doc: " </dev/tty
+go get -u $1
 
-go get -u $PACKAGE
-
-godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html
+godoc -url "http://localhost:6060/pkg/$1/" > docraw.html
 
 wget -q -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
 wget -q -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
 wget -q -O godocs.js https://raw.githubusercontent.com/toteki/doc/main/godocs.js
 wget -q -O style.css https://raw.githubusercontent.com/toteki/doc/main/style.css
 
-go build -o doc doc.go 
+go build -o docexe doc.go 
 
-./doc docraw.html docfinal.html
+./docexe docraw.html docfinal.html
 
 rm doc.go
 rm jquery.js
 rm godocs.js
 rm style.css
 
-rm doc
 rm docraw.html
 
+rm docexe
+
 open docfinal.html
+

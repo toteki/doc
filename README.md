@@ -7,8 +7,10 @@ Created to be able to generate godoc html pages, except as a flat file without h
 - go itself (to build the doc.go script)
 
 ## How to do it:
+(note: in the example below, the repository being documented is github.com/toteki/wiz)
 ```
-wget -q -O - https://raw.githubusercontent.com/toteki/doc/main/script | bash
+wget -q -O doc - https://raw.githubusercontent.com/toteki/doc/main/doc
+sh doc github.com/toteki/wiz
 ```
 
 ## What it does:
