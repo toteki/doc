@@ -2,7 +2,7 @@
 # example: PACKAGE=github.com/toteki/wiz
 # in that case, enter github.com/toteki/wiz
 nl "$PACKAGE" >/dev/tty
-read -p "Enter package name to doc: " </dev/tty
+read -p"Enter package name to doc: " </dev/tty
 
 go get -u $PACKAGE
 
