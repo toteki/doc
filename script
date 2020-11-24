@@ -1,3 +1,17 @@
-PACKAGE=github.com/toteki/wiz/
+# example: PACKAGE=github.com/toteki/wiz
+# in that case, enter github.com/toteki/wiz
+echo "Enter package name to doc: "
+read PACKAGE
 
-godoc -url "http://localhost:6060/pkg/$PACKAGE" > docinprogress.html 
+go get -u $PACKAGE
+
+godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html 
+
+go build -o doc doc.go 
+
+./doc docraw.html docfinal.html
+
+rm doc
+rm docraw.html
+
+open docfinal.html
