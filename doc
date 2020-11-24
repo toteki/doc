@@ -5,23 +5,14 @@ go get -u $PACKAGE
 godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html
 
 wget -q -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
-wget -q -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
-wget -q -O godocs.js https://raw.githubusercontent.com/toteki/doc/main/godocs.js
-wget -q -O style.css https://raw.githubusercontent.com/toteki/doc/main/style.css
 
-go build -o docexe doc.go 
+go build -o docexe doc.go
 
 ./docexe docraw.html docfinal.html
 
 rm doc.go
-rm jquery.js
-rm godocs.js
-rm style.css
-
-rm docraw.html
-
 rm docexe
 rm doc
 
+rm docraw.html
 open docfinal.html
-

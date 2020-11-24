@@ -20,16 +20,19 @@ func main() {
 	s0 := []byte("<script>\n")
 	s1 := []byte("\n</script>")
 
-	wiz.Green("Reading file godocs.js")
-	godocs, err := wiz.ReadFile("godocs.js")
+	cli := wiz.NewClient(nil, 10)
+
+	wiz.Green("Fetching file godocs.js")
+	godocs, err := cli.Get("https://raw.githubusercontent.com/toteki/doc/main/godocs.js")
+	//godocs, err := wiz.ReadFile("godocs.js")
 	if err != nil {
 		log.Fatal(err)
 	}
 	godocs = append(s0, godocs...)
 	godocs = append(godocs, s1...)
 
-	wiz.Green("Reading file jquery.js")
-	jquery, err := wiz.ReadFile("jquery.js")
+	wiz.Green("Fetching file jquery.js")
+	jquery, err := cli.Get("https://raw.githubusercontent.com/toteki/doc/main/jquery.js")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -39,8 +42,8 @@ func main() {
 	c0 := []byte("<style>\n")
 	c1 := []byte("\n</style>")
 
-	wiz.Green("Reading file style.css")
-	style, err := wiz.ReadFile("style.css")
+	wiz.Green("Fetching file style.css")
+	style, err := cli.Get("https://raw.githubusercontent.com/toteki/doc/main/style.css")
 	if err != nil {
 		log.Fatal(err)
 	}
