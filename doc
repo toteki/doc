@@ -1,6 +1,8 @@
-go get -u $1
+read -p "Enter package url to document: " PACKAGE
 
-godoc -url "http://localhost:6060/pkg/$1/" > docraw.html
+go get -u $PACKAGE
+
+godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html
 
 wget -q -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
 wget -q -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
@@ -19,6 +21,7 @@ rm style.css
 rm docraw.html
 
 rm docexe
+rm doc
 
 open docfinal.html
 
