@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # example: PACKAGE=github.com/toteki/wiz
 # in that case, enter github.com/toteki/wiz
-echo "Enter package name to doc: "
-read PACKAGE
+read PACKAGE -p "Enter package name to doc: "
 
 go get -u $PACKAGE
 
