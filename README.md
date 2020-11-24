@@ -13,7 +13,7 @@ Created to be able to generate godoc html pages, except as a flat file without h
 - Prompts user to enter a package to document, like github.com/toteki/wiz
 - Uses 'go get -u' on that package to bring it up to date
 - Builds to go.doc tool here
-- Runs the go.doc tool, which fixes the godoc html output (style and broker links)
+- Runs the go.doc tool, which fixes the godoc html output (style and broken links)
 - Displays the resulting docfinal.html
 
 ## Annoyances:
