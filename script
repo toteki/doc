@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # example: PACKAGE=github.com/toteki/wiz
 # in that case, enter github.com/toteki/wiz
 echo "Enter package name to doc: "
@@ -5,11 +6,21 @@ read PACKAGE
 
 go get -u $PACKAGE
 
-godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html 
+godoc -url "http://localhost:6060/pkg/$PACKAGE/" > docraw.html
+
+wget -O doc.go https://raw.githubusercontent.com/toteki/doc/main/doc.go
+wget -O jquery.js https://raw.githubusercontent.com/toteki/doc/main/jquery.js
+wget -O godocs.js https://raw.githubusercontent.com/toteki/doc/main/godocs.js
+wget -O style.css https://raw.githubusercontent.com/toteki/doc/main/style.css
 
 go build -o doc doc.go 
 
 ./doc docraw.html docfinal.html
+
+rm doc.go
+rm jquery.js
+rm godocs.js
+rm style.css
 
 rm doc
 rm docraw.html
