@@ -87,14 +87,14 @@ func main() {
 	//following the rule that, if the href starts with /, eliminate
 
 	//The regex that will match them
-	refspotter := regexp.MustCompile("<a href=\"/[^\"]*\">")
+	refspotter := regexp.MustCompile("<a href=\"[^#][^\"]*\">")
 	out = refspotter.ReplaceAllLiteral(out, []byte("<a doomed href>"))
-	wiz.Red("Spotting all broken hyperlinks")
+	wiz.Purple("Spotting all broken hyperlinks")
 
 	//The regex that will kill them
 	refkiller := regexp.MustCompile("<a doomed href>[^<]*</a>")
 	out = refkiller.ReplaceAllFunc(out, striplink)
-	wiz.Red("Killing all broker hyperlinks")
+	wiz.Purple("Killing all broken hyperlinks")
 
 	err = wiz.WriteFile(args[1], out)
 	if err != nil {
